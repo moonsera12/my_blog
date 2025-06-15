@@ -19,16 +19,13 @@ const nextConfig = {
         destination: '/api/markdown/:path*',
       },
     ];
-  },
-  // 성능 최적화 설정
+  },  // 성능 최적화 설정
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   // 정적 페이지 최적화
   experimental: {
     optimizeCss: true,
-    legacyBrowsers: false,
     scrollRestoration: true,
     optimizePackageImports: ['@radix-ui/react-icons', '@radix-ui/react-tooltip'],
   }

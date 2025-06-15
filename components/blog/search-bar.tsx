@@ -13,8 +13,8 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ value, onChange, placeholder = '검색...', className }: SearchBarProps) {
-  const [isFocused, setIsFocused] = useState(false);
   const searchRef = useRef<HTMLFormElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
