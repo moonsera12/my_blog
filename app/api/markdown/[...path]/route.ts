@@ -2,12 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-type RouteSegment = { path: string[] };
-
 export async function GET(
   request: NextRequest,
-  { params }: { params: RouteSegment }
-): Promise<NextResponse<string>> {
+  { params }: { params: { path: string[] } }
+): Promise<NextResponse> {
   try {
     const filePath = path.join(process.cwd(), 'posts', ...params.path);
     const content = await fs.readFile(filePath, 'utf8');
