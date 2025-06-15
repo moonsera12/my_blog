@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import type { BlogPost } from '@/data/mockData';
+import type { BlogPost } from '@/types/blog';
 
 interface SearchSuggestionsProps {
   query: string;

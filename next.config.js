@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -19,7 +18,8 @@ const nextConfig = {
         destination: '/api/markdown/:path*',
       },
     ];
-  },  // 성능 최적화 설정
+  },
+  // 성능 최적화 설정
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
