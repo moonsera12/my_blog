@@ -12,9 +12,8 @@ interface SearchBarProps {
   className?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder = '검색...', className }: SearchBarProps) {
-  const searchRef = useRef<HTMLFormElement>(null);
-  const [isFocused, setIsFocused] = useState(false);
+export function SearchBar({ value, onChange, placeholder = '검색...', className }: SearchBarProps) {  const searchRef = useRef<HTMLFormElement>(null);
+  const [_isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -50,7 +49,7 @@ export function SearchBar({ value, onChange, placeholder = '검색...', classNam
           className={cn(
             "w-full h-10 pl-4 pr-12 rounded-lg border border-input bg-background text-sm ring-offset-background",
             "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            isFocused && "ring-2 ring-ring"
+            _isFocused && "ring-2 ring-ring"
           )}
         />
         <Button
@@ -59,7 +58,7 @@ export function SearchBar({ value, onChange, placeholder = '검색...', classNam
           variant="ghost"
           className={cn(
             "absolute right-0 top-0 h-full px-3",
-            isFocused ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            _isFocused ? "text-foreground" : "text-muted-foreground hover:text-foreground"
           )}
         >
           <Search className="h-4 w-4" />
