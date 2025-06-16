@@ -35,7 +35,7 @@ export function RelatedPosts({ currentPostId, posts }: RelatedPostsProps) {
               <Card className="h-full overflow-hidden hover:shadow-md transition-shadow">
                 <div className="relative aspect-video">
                   <Image
-                    src={post.thumbnail}
+                    src={post.coverImage}
                     alt={post.title}
                     fill
                     className="object-cover"

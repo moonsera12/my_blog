@@ -20,7 +20,6 @@ export interface BlogPost {
   excerpt: string;
   description: string;
   content: string;
-  thumbnail: string;
   coverImage: string;
   date: string;
   createdAt: string;

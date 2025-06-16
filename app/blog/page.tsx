@@ -8,35 +8,36 @@ import { Badge } from '@/components/ui/badge';
 import { blogPosts } from '@/data/mockData';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
+import { CalendarIcon } from 'lucide-react';
 import type { BlogPost } from '@/types/blog';
 
 // 인기 수업 (조회수가 가장 높은 수업들)
 const popularPosts = [
 	{
-		title: '블록 코딩으로 게임 만들기',
+		title: '스크래치로 만드는 첫 번째 게임',
 		views: 2341,
 		duration: '30분',
 		level: '초급',
-		thumbnail: '/images/categories/game-dev.png',
-		description: '스크래치로 나만의 캐릭터 움직이기',
-		link: '/blog/scratch-game',
+		thumbnail: '/images/categories/blocks.png',
+		description: '블록을 조립하며 배우는 게임 만들기의 기초',
+		link: '/blog/scratch-first-game',
 	},
 	{
-		title: '파이썬으로 그림 그리기',
+		title: '파이썬 거북이와 그림 그리기',
 		views: 1982,
-		duration: '20분',
+		duration: '25분',
 		level: '초급',
-		thumbnail: '/images/categories/blocks.png',
-		description: '거북이와 함께하는 파이썬 아트',
-		link: '/blog/python-turtle',
+		thumbnail: '/images/categories/default.png',
+		description: '파이썬의 터틀 그래픽으로 다양한 모양과 패턴 그리기',
+		link: '/blog/python-turtle-drawing',
 	},
 	{
 		title: 'HTML로 캐릭터 카드 만들기',
 		views: 1756,
-		duration: '25분',
+		duration: '20분',
 		level: '초급',
 		thumbnail: '/images/categories/web-design.png',
-		description: '나만의 멋진 캐릭터 소개 페이지',
+		description: 'HTML과 CSS로 만드는 예쁜 캐릭터 소개 카드',
 		link: '/blog/html-character-card',
 	},
 ] as const;
@@ -76,30 +77,25 @@ export default function BlogPage() {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{filteredPosts.map((post) => (
 							<Link key={post.slug} href={`/blog/${post.slug}`}>
-								<Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/90 backdrop-blur-sm border border-transparent hover:border-primary/20">
-									<div className="aspect-video relative">
+								<Card className="group h-full overflow-hidden bg-white shadow-sm hover:shadow-md transition-all">
+									<div className="aspect-[4/3] relative overflow-hidden">
 										<Image
-											src={post.thumbnail}
+											src={post.coverImage}
 											alt={post.title}
 											fill
-											className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+											className="object-cover"
 										/>
 									</div>
-									<div className="p-4">
-										<div className="flex items-center gap-2 mb-2">
-											<Badge className="bg-primary/10 text-primary hover:bg-primary/20">
-												{post.category.name}
-											</Badge>
-											<span className="text-sm text-muted-foreground">
-												{format(new Date(post.date), 'PPP', { locale: ko })}
-											</span>
-										</div>
-										<h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+									<div className="p-5">
+										<h3 className="text-xl font-semibold mb-3">
 											{post.title}
-										</h2>
-										<p className="text-muted-foreground line-clamp-2">
-											{post.description}
+										</h3>
+										<p className="text-muted-foreground text-sm mb-4">
+											{post.excerpt}
 										</p>
+										<div className="text-sm text-slate-600">
+											<time>{format(new Date(post.date), 'yyyy년 M월 d일', { locale: ko })}</time>
+										</div>
 									</div>
 								</Card>
 							</Link>
@@ -124,18 +120,17 @@ export default function BlogPage() {
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 						{popularPosts.map((post) => (
-							<Link
+							<div
 								key={post.title}
-								href={post.link}
 								className="group block"
 							>
-								<Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20">
+								<Card className="h-full overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-transparent">
 									<div className="aspect-video relative">
 										<Image
 											src={post.thumbnail}
 											alt={post.title}
 											fill
-											className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+											className="object-cover"
 										/>
 										<div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-primary">
 											👀 {post.views.toLocaleString()}
@@ -147,15 +142,10 @@ export default function BlogPage() {
 												⏰ {post.duration}
 											</Badge>
 											<Badge variant="outline" className="bg-primary/5">
-												{post.level === '초급'
-													? '🌱'
-													: post.level === '중급'
-													? '🚀'
-													: '✨'}{' '}
-												{post.level}
+												{post.level === '초급' ? '🌱' : '✨'} {post.level}
 											</Badge>
 										</div>
-										<h3 className="font-bold mb-2 group-hover:text-primary transition-colors">
+										<h3 className="font-bold mb-2 text-slate-800">
 											{post.title}
 										</h3>
 										<p className="text-sm text-muted-foreground">
@@ -163,7 +153,7 @@ export default function BlogPage() {
 										</p>
 									</div>
 								</Card>
-							</Link>
+							</div>
 						))}
 					</div>
 				</div>
