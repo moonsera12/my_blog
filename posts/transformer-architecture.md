@@ -1,6 +1,28 @@
+---
+title: '트랜스포머 아키텍처 완전 가이드: 자연어 처리의 혁명'
+description: '현대 자연어 처리의 기반이 된 트랜스포머 아키텍처에 대해 심층적으로 알아봅니다.'
+date: '2025-06-14'
+author: 'AI 전문가'
+category: '딥러닝'
+tags: ['트랜스포머', 'NLP', '딥러닝', '인공지능']
+thumbnail: '/images/posts/transformer-architecture.png'
+level: '중급'
+duration: '20분'
+prerequisites: ['파이썬 기초', '딥러닝 기초']
+---
+
 # 트랜스포머 아키텍처 완전 가이드: 자연어 처리의 혁명
 
 현대 자연어 처리의 기반이 된 트랜스포머 아키텍처에 대해 심층적으로 알아봅니다.
+
+> 🎓 난이도: 중급
+> ⏱️ 소요 시간: 20분
+> 💡 핵심 개념: Attention 메커니즘, 인코더-디코더 구조
+
+> 🔍 추가 학습: PyTorch로 구현하는 트랜스포머
+> 📚 관련 논문: "Attention is All You Need" (2017)
+> 🛠️ 실습: Hugging Face 트랜스포머 라이브러리 활용
+> 🎯 응용 분야: 기계 번역, 텍스트 요약, 질의응답
 
 ## 소개
 
