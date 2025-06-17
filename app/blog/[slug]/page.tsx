@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       url: `https://yourblog.com/blog/${post.slug}`,
       images: [
         {
-          url: post.thumbnail,
+          url: post.coverImage,
           width: 1200,
           height: 630,
           alt: post.title,
