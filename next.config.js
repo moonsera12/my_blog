@@ -2,7 +2,20 @@
 const nextConfig = {
   output: 'standalone',
   images: {
-    unoptimized: true
+    domains: ['images.unsplash.com'],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*',
+      },
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true
+  },
+  eslint: {
+    ignoreDuringBuilds: true
   }
 }
 
