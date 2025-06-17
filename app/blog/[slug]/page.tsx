@@ -40,12 +40,16 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       modifiedTime: post.date,
       authors: [post.author.name],
       tags: post.tags.map(tag => tag.name),
-    },
-    twitter: {
+    },    twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [post.coverImage],
+      images: [
+        {
+          url: post.coverImage,
+          alt: post.title
+        }
+      ],
       creator: '@yourtwitterhandle',
     },
   };
