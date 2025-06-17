@@ -5,7 +5,10 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true
-  }
+  },
+  distDir: '.next',
+  generateBuildId: () => 'build',
+  trailingSlash: true
 }
 
 module.exports = nextConfig
