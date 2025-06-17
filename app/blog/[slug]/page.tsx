@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [post.thumbnail],
+      images: [post.coverImage],
       creator: '@yourtwitterhandle',
     },
   };

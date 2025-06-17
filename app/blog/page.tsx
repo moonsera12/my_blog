@@ -18,7 +18,7 @@ const popularPosts = [
 		views: 2341,
 		duration: '30분',
 		level: '초급',
-		thumbnail: '/images/categories/blocks.png',
+		coverImage: '/images/categories/blocks.png',
 		description: '블록을 조립하며 배우는 게임 만들기의 기초',
 		link: '/blog/scratch-first-game',
 	},
@@ -27,7 +27,7 @@ const popularPosts = [
 		views: 1982,
 		duration: '25분',
 		level: '초급',
-		thumbnail: '/images/categories/default.png',
+		coverImage: '/images/categories/default.png',
 		description: '파이썬의 터틀 그래픽으로 다양한 모양과 패턴 그리기',
 		link: '/blog/python-turtle-drawing',
 	},
@@ -36,7 +36,7 @@ const popularPosts = [
 		views: 1756,
 		duration: '20분',
 		level: '초급',
-		thumbnail: '/images/categories/web-design.png',
+		coverImage: '/images/categories/web-design.png',
 		description: 'HTML과 CSS로 만드는 예쁜 캐릭터 소개 카드',
 		link: '/blog/html-character-card',
 	},
@@ -127,7 +127,7 @@ export default function BlogPage() {
 								<Card className="h-full overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-transparent">
 									<div className="aspect-video relative">
 										<Image
-											src={post.thumbnail}
+											src={post.coverImage}
 											alt={post.title}
 											fill
 											className="object-cover"
