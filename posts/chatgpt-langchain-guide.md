@@ -5,7 +5,7 @@ date: '2025-06-16'
 author: 'AI 전문가'
 category: 'AI 개발'
 tags: ['ChatGPT', 'LangChain', 'OpenAI', 'AI 애플리케이션']
-thumbnail: '/images/posts/chatgpt-langchain.png'
+coverImage: '/images/posts/chatgpt-langchain.png'
 level: '중급'
 duration: '25분'
 prerequisites: ['파이썬 기초', 'API 사용 경험']

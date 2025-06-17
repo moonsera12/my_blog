@@ -5,7 +5,7 @@ date: '2025-06-14'
 author: 'AI 전문가'
 category: '딥러닝'
 tags: ['트랜스포머', 'NLP', '딥러닝', '인공지능']
-thumbnail: '/images/posts/transformer-architecture.png'
+coverImage: '/images/posts/transformer-architecture.png'
 level: '중급'
 duration: '20분'
 prerequisites: ['파이썬 기초', '딥러닝 기초']

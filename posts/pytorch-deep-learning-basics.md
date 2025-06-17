@@ -5,7 +5,7 @@ date: '2025-06-14'
 author: 'AI 전문가'
 category: '딥러닝'
 tags: ['PyTorch', '딥러닝', '머신러닝', '신경망']
-thumbnail: '/images/posts/pytorch-basics.png'
+coverImage: '/images/posts/pytorch-basics.png'
 level: '초급'
 duration: '30분'
 prerequisites: ['파이썬 기초']
