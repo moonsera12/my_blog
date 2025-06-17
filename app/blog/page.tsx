@@ -50,7 +50,7 @@ export default function BlogPage() {
 		: blogPosts;
 
 	return (
-		<div className="min-h-screen">
+		<main className="flex flex-col min-h-screen">
 			{/* Hero 섹션 */}
 			<section className="relative flex flex-col items-center justify-center py-16 bg-gradient-to-b from-pink-100 via-purple-100 to-blue-50">
 				<div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
@@ -118,34 +118,39 @@ export default function BlogPage() {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-8">
-						{popularPosts.map((post, i) => (
-							<div key={i} className="cursor-default">
-								<Card className="h-full overflow-hidden bg-white shadow-sm transition-all">
-									<div className="aspect-[4/3] relative overflow-hidden">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+						{popularPosts.map((post) => (
+							<div
+								key={post.title}
+								className="group block"
+							>
+								<Card className="h-full overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-transparent">
+									<div className="aspect-video relative">
 										<Image
 											src={post.thumbnail}
 											alt={post.title}
 											fill
 											className="object-cover"
 										/>
-										<div className="absolute inset-0 bg-black/10" />
-										<div className="absolute top-3 right-3">
-											<Badge variant="secondary" className="bg-white/90 backdrop-blur-sm">
-												{post.level}
-											</Badge>
+										<div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-primary">
+											👀 {post.views.toLocaleString()}
 										</div>
 									</div>
-									<div className="p-5">
-										<h3 className="text-xl font-semibold mb-3">{post.title}</h3>
-										<p className="text-muted-foreground text-sm mb-4">{post.description}</p>
-										<div className="flex items-center gap-4 text-sm text-slate-600">
-											<div className="flex items-center gap-1">
-												<CalendarIcon className="w-4 h-4" />
-												<span>{post.duration}</span>
-											</div>
-											<div>👀 {post.views.toLocaleString()}회</div>
+									<div className="p-4">
+										<div className="flex items-center gap-2 mb-3">
+											<Badge variant="outline" className="bg-primary/5">
+												⏰ {post.duration}
+											</Badge>
+											<Badge variant="outline" className="bg-primary/5">
+												{post.level === '초급' ? '🌱' : '✨'} {post.level}
+											</Badge>
 										</div>
+										<h3 className="font-bold mb-2 text-slate-800">
+											{post.title}
+										</h3>
+										<p className="text-sm text-muted-foreground">
+											{post.description}
+										</p>
 									</div>
 								</Card>
 							</div>
@@ -153,64 +158,6 @@ export default function BlogPage() {
 					</div>
 				</div>
 			</section>
-
-			{/* 메인 블로그 섹션 */}
-			<section className="py-16">
-				<div className="container max-w-6xl mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-2xl font-bold mb-4">
-							<span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-								심화 코딩 수업 💫
-							</span>
-						</h2>
-						<p className="text-gray-600">
-							코딩을 좀 더 깊이 있게 배우고 싶은 친구들을 위한 특별한 수업이에요! 💻
-						</p>
-					</div>
-
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-						{filteredPosts.map((post) => (
-							<Link key={post.id} href={`/blog/${post.slug}`}>
-								<Card className="group h-full overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-									<div className="aspect-[4/3] relative overflow-hidden">
-										<Image
-											src={post.coverImage}
-											alt={post.title}
-											fill
-											className="object-cover transform transition-transform duration-300 group-hover:scale-105"
-										/>
-										<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-										{post.featured && (
-											<Badge 
-												variant="secondary" 
-												className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-primary shadow-lg"
-											>
-												✨ 추천
-											</Badge>
-										)}
-									</div>
-									<div className="p-5">
-										<div className="flex items-center gap-2 mb-3">
-											<Badge variant="outline" className="bg-primary/5">
-												{post.category.name}
-											</Badge>
-											<time className="text-sm text-muted-foreground">
-												{format(new Date(post.date), 'PPP', { locale: ko })}
-											</time>
-										</div>
-										<h3 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-											{post.title}
-										</h3>
-										<p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-											{post.excerpt}
-										</p>
-									</div>
-								</Card>
-							</Link>
-						))}
-					</div>
-				</div>
-			</section>
-		</div>
+		</main>
 	);
 }
